@@ -5,9 +5,11 @@
       {%endfor%}
     <div id="welcome" class="p-4 col-md-11">
       {% for about in abouts %}
-      <label class="text-light fw-bold fs-1" id="welcomeText">{{about.about}}</label>
+      <label class="text-light fw-bold fs-1" id="welcomeText">{{about.about|slice:":50"}}...</label>
        {%endfor%}
-      <button class="fw-4 p-2 fst-italic" id="moreabout"> See more
-      </button>
+      <a href="#aboutorg">
+        <button class="fw-4 p-2 fst-italic" id="moreabout"> See more
+        </button>
+      </a>
     </div>
   </div>

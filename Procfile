@@ -1,0 +1,1 @@
+web: gunicorn fdnexplore.wsgi --log-file -

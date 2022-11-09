@@ -34,7 +34,7 @@ class Banner(models.Model):
         return self.bannercaptions
 
 class OrganizationAbout(models.Model):
-    about= models.CharField(max_length=255, blank=True, null=True)
+    about= models.TextField(blank=True, null=True)
     is_active= models.BooleanField(default=True, null=True)
     addedby=models.ForeignKey(User, on_delete=models.CASCADE)
     dateadded= models.DateTimeField(auto_now=True)
