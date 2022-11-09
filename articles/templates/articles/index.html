@@ -1,0 +1,56 @@
+{% extends 'articles/base.html' %}
+{% block body %}
+
+
+
+<div class="col-md-12 justify-content-center d-flex">
+   {% include 'articles/banner.html' %}
+</div>
+
+
+<div class="col-md-12 shadow-lg mb-5 mt-2 row d-flex justify-content-evenly">
+  {% if lastarticle %}
+  <div class="card col-md-10 border-0">
+    <figure>
+      <img id="firstarticle" src="{{lastarticle.imagethumbnail.url}}" class="card-img" alt="...">
+      <figcaption class="text-center fst-italic">{{lastarticle.imagecaptions}}</figcaption>
+    </figure>    
+    <div class="card-img-overlay">
+      <h4 class="card-title first">{{lastarticle.title}}</h4>
+      <p class="card-text first">{{lastarticle.text|slice:":150"}} ...</p>
+      <p class="card-text first col-md-2 fst-italic"><small>{{lastarticle.lastupdated}}</small></p>
+      <p class="card-text first col-md-2 fst-italic"><small>By: {{lastarticle.publishedby}}</small></p>
+      <button class="learn-more" id="seemore">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Learn More</span>
+      </button>
+    </div>
+  </div>
+  {% endif %}
+  {% for article in articles %}
+    <div class="col-md-3 card mt-2 border-0 shadow-lg p-3 mb-5 bg-body rounded">
+      <img src="{{article.imagethumbnail.url}}" class="card-img-top mt-2" alt="...">
+      <div class="card-body">
+        <h4>{{article.title}}</h4>
+        <p class="card-text">{{article.text|slice:":150"}}...</p>
+        <p class="card-text fst-italic"><small>{{article.lastupdated}}</small></p>
+        <p class="card-text fst-italic"><small>By: {{article.publishedby}}</small></p>
+      </div>
+      <p class="card-text"><small class="text-muted">{{article.lastupdated}}</small></p>
+      <button class="learn-more" id="seemore">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Learn More</span>
+      </button>
+    </div>
+  {%endfor%}
+
+  <div class="card mb-3 col-md-10">
+    {% include 'articles/slide.html' %}
+  </div>
+
+</div>
+{% endblock%}
