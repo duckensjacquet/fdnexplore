@@ -73,7 +73,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'fdnexplore.wsgi.application'
-
+CSRF_TRUSTED_ORIGINS = ['https://fdnexplore.herokuapp.com']
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
