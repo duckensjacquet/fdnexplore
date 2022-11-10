@@ -1,15 +1,18 @@
 <div class="col-md-11 position-relative p-3 shadow-lg bg-body">
-    {% for banne in banner %}
-    <img src="{{banne.bannerimage}}"
-      class="img-fluid shadow-lg" alt="nature">
+   {% if banner %}
+   {% for banne in banner %}
+   <img src="{{banne.bannerimage}}"
+     class="img-fluid shadow-lg" alt="nature">
+     {%endfor%}
+   <div id="welcome" class="p-4 col-md-11">
+     {% for about in abouts %}
+     <label class="text-light fw-bold fs-1" id="welcomeText">{{about.about|slice:":50"}}...</label>
       {%endfor%}
-    <div id="welcome" class="p-4 col-md-11">
-      {% for about in abouts %}
-      <label class="text-light fw-bold fs-1" id="welcomeText">{{about.about|slice:":50"}}...</label>
-       {%endfor%}
-      <a href="#aboutorg">
-        <button class="fw-4 p-2 fst-italic" id="moreabout"> See more
-        </button>
-      </a>
-    </div>
+     <a href="#aboutorg">
+       <button class="fw-4 p-2 fst-italic" id="moreabout"> See more
+       </button>
+     </a>
+   </div>
+
+   {%endif%}
   </div>

@@ -10,7 +10,9 @@
  {% include 'articles/articles.html' %}
 
   <div class="card mb-3 col-md-10" id="aboutorg">
+    {%if slides%}
     {% include 'articles/slide.html' %}
+    {%endif%}
   </div>
 
 </div>
