@@ -16,5 +16,8 @@ def Index(request):
     #create the context
     context={'articles': article,'lastarticle': lastarticle,'banner': banner,'abouts':about,'slides': slide}
     return render(request,'articles/index.html',context)
+
+
+#--web: gunicorn fdnexplore.wsgi --log-file -
     
 
