@@ -4,16 +4,21 @@
 <div class="col-md-12 justify-content-center d-flex">
    {% include 'articles/banner.html' %}
 </div>
-
-
-<div class="col-md-12 shadow-lg mb-5 mt-2 row d-flex justify-content-evenly">
+<hr/>
+<div class="col-md-12 shadow-lg row d-flex justify-content-evenly">
  {% include 'articles/articles.html' %}
-
+ <hr/>
   <div class="card mb-3 col-md-10" id="aboutorg">
     {%if slides%}
     {% include 'articles/slide.html' %}
     {%endif%}
   </div>
-
 </div>
+<hr/>
+
+<div id="footer" class="col-md-12 shadow-lg d-flex justify-content-between p-2">
+ {% include 'articles/footer.html' %}
+</div>
+
+
 {% endblock%}

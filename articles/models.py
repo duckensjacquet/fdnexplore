@@ -24,7 +24,7 @@ class Article(models.Model):
 
 
 class Banner(models.Model):
-    bannerimage= models.ImageField(upload_to="images/banner")
+    bannerimage= models.ImageField(upload_to="articles/static/articles/images/banner")
     bannercaptions= models.CharField(max_length=255, blank=True, null=True)
     dateadded= models.DateField(auto_now=True)
     addedby=models.ForeignKey(User, on_delete=models.CASCADE)
