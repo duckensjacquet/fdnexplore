@@ -16,7 +16,7 @@ class Article(models.Model):
     datepublished= models.DateTimeField(auto_now_add=True)
     lastupdated= models.DateTimeField(auto_now=True)
     publishedby= models.ForeignKey(User,  on_delete=models.CASCADE)
-    imagethumbnail= models.ImageField(upload_to="images")
+    imagethumbnail= models.ImageField(upload_to="articles/static/articles/images/post")
     imagecaptions= models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
@@ -44,7 +44,7 @@ class OrganizationAbout(models.Model):
 
 
 class Slide(models.Model):
-    photo= models.ImageField(upload_to='images/slide')
+    photo= models.ImageField(upload_to='articles/static/articles/images/about')
     caption= models.CharField(max_length=225, blank=True, null=True)
     addedby=models.ForeignKey(User, on_delete=models.CASCADE)
     dateadded= models.DateTimeField(auto_now=True)

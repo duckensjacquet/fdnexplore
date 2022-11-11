@@ -13,5 +13,6 @@ db.sqlite3
 # Byte-compiled / optimized / DLL files
 __pycache__/
 /images
+/articles/static/images
 *.py[cod]
 *$py.class
