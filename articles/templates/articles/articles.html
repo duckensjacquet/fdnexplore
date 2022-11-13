@@ -1,41 +1,67 @@
 {% if lastarticle %}
 <div class="card col-md-10 border-0">
   <figure>
-    <img id="firstarticle" src="{{lastarticle.imagethumbnail.url}}" class="card-img" alt="{{lastarticle.imagecaptions}}">
-    <figcaption class="text-center fst-italic">{{lastarticle.imagecaptions}}</figcaption>
-  </figure>    
+    <img
+      id="firstarticle"
+      src="{{lastarticle.imagethumbnail.url}}"
+      class="card-img"
+      alt="{{lastarticle.imagecaptions}}"
+    />
+    <figcaption class="text-center fst-italic">
+      {{lastarticle.imagecaptions}}
+    </figcaption>
+  </figure>
   <div class="card-img-overlay">
-    <h4 class="card-title first">{{lastarticle.title}}</h4>
-    <p class="card-text first">{{lastarticle.text|slice:":150"}} ...</p>
-    <p class="card-text first col-md-2 fst-italic"><small>{{lastarticle.lastupdated}}</small></p>
-    <p class="card-text first col-md-2 fst-italic"><small>By: {{lastarticle.publishedby}}</small></p>
-    <button class="learn-more" id="seemore">
-      <span class="circle" aria-hidden="true">
-        <span class="icon arrow"></span>
-      </span>
-      <span class="button-text">Learn More</span>
-    </button>
+    <div class="first">
+      <h4 class="card-title">{{lastarticle.title}}</h4>
+      <p class="card-text">{{lastarticle.text|slice:":150"}} ...</p>
+      <p class="card-text col-md-2 fst-italic">
+        <small>{{lastarticle.lastupdated}}</small>
+      </p>
+      <p class="card-text col-md-2 fst-italic">
+        <small>By: {{lastarticle.publishedby}}</small>
+      </p>
+      <a href="{% url 'display_article' lastarticle.pk %}">
+        <button class="learn-more" id="seemore">
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <span class="button-text">Learn More</span>
+        </button>
+      </a>
+    </div>
   </div>
 </div>
-{% endif %}
-{% for article in articles %}
-  <div class="col-md-3 card mt-2 border-0 shadow-lg p-3 mb-5 bg-body rounded">
-    <figure>
-        <img src="{{article.imagethumbnail.url}}" class="card-img-top mt-2" alt="{{article.imagecaptions}}">
-        <figcaption class="text-center fst-italic">{{article.imagecaptions}}</figcaption>
-      </figure> 
-    <div class="card-body">
-      <h4>{{article.title}}</h4>
-      <p class="card-text">{{article.text|slice:":150"}}...</p>
-      <p class="card-text fst-italic"><small>{{article.lastupdated}}</small></p>
-      <p class="card-text fst-italic"><small>By: {{article.publishedby}}</small></p>
-    </div>
-    <p class="card-text"><small class="text-muted">{{article.lastupdated}}</small></p>
+{% endif %} {% for article in articles %}
+<div class="col-md-3 card mt-2 border-0 shadow-lg p-3 mb-5 bg-body rounded">
+  <figure>
+    <img
+      src="{{article.imagethumbnail.url}}"
+      class="card-img-top mt-2"
+      alt="{{article.imagecaptions}}"
+    />
+    <figcaption class="text-center fst-italic">
+      {{article.imagecaptions}}
+    </figcaption>
+  </figure>
+  <div class="card-body">
+    <h4>{{article.title}}</h4>
+    <p class="card-text">{{article.text|slice:":150"}}...</p>
+    <p class="card-text fst-italic"><small>{{article.lastupdated}}</small></p>
+    <p class="card-text fst-italic">
+      <small>By: {{article.publishedby}}</small>
+    </p>
+  </div>
+  <p class="card-text">
+    <small class="text-muted">{{article.lastupdated}}</small>
+  </p>
+  <a href="{% url 'display_article' article.pk %}">
     <button class="learn-more" id="seemore">
       <span class="circle" aria-hidden="true">
         <span class="icon arrow"></span>
       </span>
       <span class="button-text">Learn More</span>
     </button>
-  </div>
+  </a>
+</div>
 {%endfor%}

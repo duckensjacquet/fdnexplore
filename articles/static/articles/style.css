@@ -244,3 +244,9 @@ button:hover .button-text {
   box-shadow: inset 3px 3px 3px #0056ff,
               inset -3px -3px 3px #00c2ff;
  }
+
+ .social{
+  text-decoration: none;
+  font-weight: bold;
+  
+ }

@@ -22,3 +22,6 @@ def Index(request):
         pass
     
 
+def DisplayArticle(request,id):
+    article=Article.objects.get(pk=id)
+    return render(request,'articles/display.html',{'article' : article})

@@ -37,7 +37,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img class="logo" src="{% static 'photos/fdn.png' %}"></a>
+        <a class="navbar-brand" href="/"><img class="logo" src="{% static 'photos/fdn.png' %}"></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -52,10 +52,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active text-dark" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#footer">Contact</a>
+              <a class="nav-link text-dark" href="#footer">Contact</a>
             </li>
             <!--
             <li class="nav-item dropdown">
@@ -79,7 +79,7 @@
             </li>
           -->
             <li class="nav-item">
-              <a class="nav-link" href="#aboutorg">About</a>
+              <a class="nav-link text-dark" href="#aboutorg">About</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
@@ -100,5 +100,9 @@
     </nav>
 
     {% block body %} {% endblock %}
+
+    <div id="footer" class="col-md-12 shadow-lg d-flex justify-content-between p-2">
+      {% include 'articles/footer.html' %}
+     </div>
   </body>
 </html>
