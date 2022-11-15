@@ -1,0 +1,170 @@
+﻿{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      name="description"
+    />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.co' %}" />
+
+    <!-- third party css -->
+    <link
+      href="{% static 'assets/css/vendor/jquery-jvectormap-1.2.2.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- third party css end -->
+
+    <!-- App css -->
+    <link
+      href="{% static 'assets/css/icons.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'assets/css/app.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+      id="light-style"
+    />
+    <link
+      href="{% static 'assets/css/app-dark.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+      id="dark-style"
+    />
+
+{% block bootstrap%}
+{%endblock%}
+  
+ <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+  </head>
+
+  <body
+    class="loading"
+    data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'
+  >
+    <!-- Begin page -->
+    <div class="wrapper">
+      <!-- ========== Left Sidebar Start ========== -->
+      {% include 'dashboardadmin/sidebar.html' %}
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+
+      <div class="content-page">
+        <div class="content">
+          <!-- Topbar Start -->
+          {% include 'dashboardadmin/topnav.html' %}
+          <!-- end Topbar -->
+
+          <!-- Start Content-->
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div class="page-title-box">
+                  <div class="page-title-right">
+                    <form class="d-flex">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control form-control-light"
+                          id="dash-daterange"
+                        />
+                        <span
+                          class="input-group-text bg-primary border-primary text-white"
+                        >
+                          <i class="mdi mdi-calendar-range font-13"></i>
+                        </span>
+                      </div>
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-primary ms-2"
+                      >
+                        <i class="mdi mdi-autorenew"></i>
+                      </a>
+                      <a
+                        href="javascript: void(0);"
+                        class="btn btn-primary ms-1"
+                      >
+                        <i class="mdi mdi-filter-variant"></i>
+                      </a>
+                    </form>
+                  </div>
+                  <h4 class="page-title">
+                    {% block title %}
+                  {%endblock%}
+                  </h4>
+                </div>
+              </div>
+            </div>
+            {% block body %}
+            {%endblock%}
+            <!-- end page title -->
+            
+            <!-- end row -->
+          </div>
+          <!-- container -->
+        </div>
+        <!-- content -->
+
+        <!-- Footer Start -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                © Ing Duckens
+              </div>
+              <!-- <div class="col-md-6">
+                <div class="text-md-end footer-links d-none d-md-block">
+                  <a href="javascript: void(0);">About</a>
+                  <a href="javascript: void(0);">Support</a>
+                  <a href="javascript: void(0);">Contact Us</a>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </footer>
+        <!-- end Footer -->
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- End Page content -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Right Sidebar -->
+    {% include 'dashboardadmin/settings.html' %}
+
+    <!-- /End-bar -->
+
+    <!-- bundle -->
+    <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+    <script src="{% static 'assets/js/app.min.js' %}"></script>
+
+
+    <!-- demo app -->
+    <script src="{% static 'assets/js/pages/demo.dashboard.js' %}"></script>
+    <script>
+      ClassicEditor
+          .create( document.querySelector( '#contactmsg' ) )
+          .catch( error => {
+              console.error( error );
+          } );
+  </script>
+    <!-- end demo js-->
+  </body>
+</html>

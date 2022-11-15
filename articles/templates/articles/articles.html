@@ -3,7 +3,7 @@
   <figure>
     <img
       id="firstarticle"
-      src="{{lastarticle.imagethumbnail.url}}"
+      src="{{lastarticle.imagethumbnail}}"
       class="card-img"
       alt="{{lastarticle.imagecaptions}}"
     />
@@ -34,6 +34,8 @@
 </div>
 {% endif %} {% for article in articles %}
 <div class="col-md-3 card mt-2 border-0 shadow-lg p-3 mb-5 bg-body rounded">
+  {% if article.imagethumbnail.url %}
+  {{article.imagethumbnail.url}}
   <figure>
     <img
       src="{{article.imagethumbnail.url}}"
@@ -44,6 +46,18 @@
       {{article.imagecaptions}}
     </figcaption>
   </figure>
+  {% else %}
+  <figure>
+    <img
+      src="https://liftlearning.com/wp-content/uploads/2020/09/default-image.png"
+      class="card-img-top mt-2"
+      alt=""
+    />
+    <figcaption class="text-center fst-italic">No image</figcaption>
+  </figure>
+
+  {%endif%}
+
   <div class="card-body">
     <h4>{{article.title}}</h4>
     <p class="card-text">{{article.text|slice:":150"}}...</p>

@@ -1,8 +1,13 @@
-<div class="col-md-11 position-relative p-3 shadow-lg bg-body">
+<div class="col-md-11 position-relative p-3 shadow-lg bg-body justify-content-center">
    {% if banner %}
    {% for banne in banner %}
+   {% if banne.bannerimage.url.exists%}
    <img src="{{banne.bannerimage}}"
      class="img-fluid shadow-lg imgbanner" alt="nature">
+    {% else %}
+    <img src="https://liftlearning.com/wp-content/uploads/2020/09/default-image.png"
+     class=" " alt="nature">
+     {%endif%}
      {%endfor%}
    <div id="welcome" class="p-4 col-md-11">
      {% for about in abouts %}

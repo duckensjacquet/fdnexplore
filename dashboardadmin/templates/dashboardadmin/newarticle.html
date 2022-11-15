@@ -1,0 +1,39 @@
+{% extends 'dashboardadmin/layout.html' %} 
+{% block title %}
+<label>New article</label>
+{%endblock%} {%block body %}
+<div class="col-md-12">
+  <form method="post" action="">
+    {% csrf_token %}
+    <div class="col-md-12 row d-flex justify-content-between">
+      <div class="col-md-5">
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" id="title" />
+      </div>
+      <div class="col-md-3">
+        <label>Category</label>
+        <select name="category" id="category" class="form-select">
+            {% for category in categories %}
+            <option value="{{category.id}}" >{{category.description}}</option>
+            {%endfor%}
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label>Image</label>
+        <input class="form-control" type="file" id="formFile" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <label>Article</label>
+      <input
+        class="form-control"
+        id=""
+        style="resize: none"
+        name="text"
+        required
+      />
+    </div>
+    <input type="submit" value="Publier" class="btn mt-2 btn-primary" />
+  </form>
+</div>
+{%endblock%}
