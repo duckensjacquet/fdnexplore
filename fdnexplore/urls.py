@@ -18,11 +18,14 @@ from articles import views
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from dashboardadmin import views as dashboardadmin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.Index),
-    path('dashboard/',include('dashboardadmin.urls'), name='dashboardadmin'),
+    path('',views.Index,name='index'),
+    path('dashboard/',dashboardadmin.Dashboard,name='dash'),
+    path('dashboard/',include('dashboardadmin.urls'), name='dashboard'),
+    path('login/',include('login.urls'), name='login'),
     path('article/<int:id>', views.DisplayArticle,name='display_article'),
     
 ]

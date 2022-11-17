@@ -12,7 +12,7 @@
     <meta content="Coderthemes" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{% static 'assets/images/favicon.co' %}" />
-
+    <script src="{% static 'assets/js/vendor.min.js' %}"></script>
     <!-- third party css -->
     <link
       href="{% static 'assets/css/vendor/jquery-jvectormap-1.2.2.css' %}"
@@ -20,7 +20,6 @@
       type="text/css"
     />
     <!-- third party css end -->
-
     <!-- App css -->
     <link
       href="{% static 'assets/css/icons.min.css' %}"
@@ -39,11 +38,14 @@
       type="text/css"
       id="dark-style"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"
+    />
 
-{% block bootstrap%}
-{%endblock%}
-  
- <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+    {% block bootstrap%} {%endblock%}
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
   </head>
 
   <body
@@ -100,17 +102,13 @@
                       </a>
                     </form>
                   </div>
-                  <h4 class="page-title">
-                    {% block title %}
-                  {%endblock%}
-                  </h4>
+                  <h4 class="page-title">{% block title %} {%endblock%}</h4>
                 </div>
               </div>
             </div>
-            {% block body %}
-            {%endblock%}
+            {% block body %} {%endblock%}
             <!-- end page title -->
-            
+
             <!-- end row -->
           </div>
           <!-- container -->
@@ -152,19 +150,24 @@
     <!-- /End-bar -->
 
     <!-- bundle -->
-    <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+    
     <script src="{% static 'assets/js/app.min.js' %}"></script>
-
 
     <!-- demo app -->
     <script src="{% static 'assets/js/pages/demo.dashboard.js' %}"></script>
     <script>
-      ClassicEditor
-          .create( document.querySelector( '#contactmsg' ) )
-          .catch( error => {
-              console.error( error );
-          } );
-  </script>
+      ClassicEditor.create(document.querySelector("#contactmsg")).catch(
+        (error) => {
+          console.error(error);
+        }
+      );
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#articletable").DataTable();
+      });
+    </script>
+
     <!-- end demo js-->
   </body>
 </html>

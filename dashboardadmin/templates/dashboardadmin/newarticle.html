@@ -1,9 +1,10 @@
 {% extends 'dashboardadmin/layout.html' %} 
+
 {% block title %}
 <label>New article</label>
 {%endblock%} {%block body %}
 <div class="col-md-12">
-  <form method="post" action="">
+  <form method="post" action="" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="col-md-12 row d-flex justify-content-between">
       <div class="col-md-5">
@@ -20,7 +21,7 @@
       </div>
       <div class="col-md-3">
         <label>Image</label>
-        <input class="form-control" type="file" id="formFile" />
+        <input class="form-control" type="file" id="imagethumbnail" name="imagethumbnail" />
       </div>
     </div>
     <div class="col-md-12">

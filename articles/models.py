@@ -18,6 +18,7 @@ class Article(models.Model):
     publishedby= models.ForeignKey(User,  on_delete=models.CASCADE)
     imagethumbnail= models.ImageField(upload_to="articles/static/articles/images/post")
     imagecaptions= models.CharField(max_length=255, blank=True, null=True, default='...')
+    status= models.BooleanField(default=True,null=True,blank=True)
 
     def __str__(self):
         return self.title
