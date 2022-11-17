@@ -4,14 +4,14 @@
 <label>New article</label>
 {%endblock%} {%block body %}
 <div class="col-md-12">
-  <form method="post" action="" enctype="multipart/form-data">
+  <form method="post" action="" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     <div class="col-md-12 row d-flex justify-content-between">
       <div class="col-md-5">
         <label>Title</label>
         <input type="text" class="form-control" name="title" id="title" />
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <label>Category</label>
         <select name="category" id="category" class="form-select">
             {% for category in categories %}
@@ -19,20 +19,25 @@
             {%endfor%}
         </select>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <label>Image</label>
-        <input class="form-control" type="file" id="imagethumbnail" name="imagethumbnail" />
+        <input class="form-control" accept="image/*" type="file" id="imagethumbnail" name="imagethumbnail" />
+        
+      </div>
+      <div class="col-md-3">
+        <img src="https://deconova.eu/wp-content/uploads/2016/02/default-placeholder.png" height="80" alt="preview" id="preview"/>
       </div>
     </div>
     <div class="col-md-12">
       <label>Article</label>
-      <input
+      <div
         class="form-control"
-        id=""
+        id="articletext"
         style="resize: none"
-        name="text"
+        name="art"
         required
-      />
+      ></div>
+      <input type="hidden" name="text" id="text"/>
     </div>
     <input type="submit" value="Publier" class="btn mt-2 btn-primary" />
   </form>

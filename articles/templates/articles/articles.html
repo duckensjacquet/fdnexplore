@@ -21,6 +21,9 @@
       <p class="card-text col-md-2 fst-italic">
         <small>By: {{lastarticle.publishedby}}</small>
       </p>
+      <p class="card-text">
+        <small>{{lastarticle.views}} view (s)</small>
+      </p>
       <a href="{% url 'display_article' lastarticle.pk %}">
         <button class="learn-more" id="seemore">
           <span class="circle" aria-hidden="true">
@@ -32,8 +35,8 @@
     </div>
   </div>
 </div>
-{% endif %} {% for article in articles %}
-<div class="col-md-3 card mt-2 border-0 shadow-lg p-3 mb-5 bg-body rounded">
+{% endif %} {% for article in page_obj %}
+<div class="col-md-3 m-1 card mt-2 border-0 shadow-lg p-3 mb-1 bg-body rounded">
   {% if article.imagethumbnail.url %}
 
   <figure>
@@ -69,6 +72,9 @@
   <p class="card-text">
     <small class="text-muted">{{article.lastupdated}}</small>
   </p>
+  <p class="card-text">
+    <small class="text-muted">{{article.views}} view (s)</small>
+  </p>
   <a href="{% url 'display_article' article.pk %}">
     <button class="learn-more" id="seemore">
       <span class="circle" aria-hidden="true">
@@ -79,3 +85,4 @@
   </a>
 </div>
 {%endfor%}
+{% include 'articles/pagination.html' %}

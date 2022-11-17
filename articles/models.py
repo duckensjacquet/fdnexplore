@@ -19,6 +19,7 @@ class Article(models.Model):
     imagethumbnail= models.ImageField(upload_to="articles/static/articles/images/post")
     imagecaptions= models.CharField(max_length=255, blank=True, null=True, default='...')
     status= models.BooleanField(default=True,null=True,blank=True)
+    views=models.IntegerField(null=True, blank=True, default=0)
 
     def __str__(self):
         return self.title
