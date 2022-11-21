@@ -7,7 +7,9 @@ from django.urls import reverse
 # Create your views here.
 
 def Dashboard(request):
-    return render(request, 'dashboardadmin/index.html')
+    nbarticle=Article.objects.all().count()
+    nbuser=User.objects.all().count()
+    return render(request, 'dashboardadmin/index.html',{'nbarticle': nbarticle,'nbuser': nbuser})
 
 def ListArticle(request):
     article=Article.objects.all().order_by("-id")
