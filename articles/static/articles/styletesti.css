@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+    transition: all 0.3s ease;
+}
+
+
+blockquote {
+    padding: 0;
+    margin: 0;
+}
+
+
+.t-bq-wrapper.t-bq-wrapper-fullwidth {
+    max-width: 100%;
+}
+
+
+
+/* ========== 06. Jasper ========== */
+
+.t-bq-quote-jasper {
+    position: relative;
+    box-shadow: 2px 2px 25px #cecece;
+    border-radius: 10px;
+}
+
+.t-bq-quote-jasper .t-bq-quote-jasper-pattern {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    background: url("https://raw.githubusercontent.com/taviskaron/t-div-blockquotes/main/img/hexabump.png") repeat;
+    border-radius: 10px 10px 0 0;
+}
+
+.t-bq-quote-jasper .t-bq-quote-jasper-pattern .t-bq-quote-jasper-qmark {
+    flex-basis: 100px;
+    font-family: Garamond, Georgia, "Times New Roman", serif;
+    font-size: 60pt;
+    color: #999999;
+    text-align: center;
+    height: 80px;
+    line-height: 90pt;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.t-bq-quote-jasper .t-bq-quote-jasper-userpic {
+    position: absolute;
+    top: 45px;
+    left: calc(50% - 35px);
+    width: 70px;
+    height: 70px;
+    background: url("https://raw.githubusercontent.com/taviskaron/t-div-blockquotes/main/img/strug.jpg") center center no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.t-bq-quote-jasper .t-bq-quote-jasper-base {
+    flex-basis: calc(100% - 80px);
+    background: #ffffff;
+    padding: 60px 30px 50px 100px;
+    font-size: 11pt;
+    line-height: 1.62em;
+    border-radius: 0 0 10px 10px;
+}
+
+.t-bq-quote-jasper .t-bq-quote-jasper-meta {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 2px dotted #777777;
+    text-align: center;
+}
+
+.t-bq-quote-jasper .t-bq-quote-jasper-meta .t-bq-quote-jasper-author,
+.t-bq-quote-jasper .t-bq-quote-jasper-meta .t-bq-quote-jasper-source {
+    color: #777777;
+}
+
+.t-bq-quote-jasper .t-bq-quote-jasper-meta .t-bq-quote-jasper-author {
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.t-bq-quote-jasper .t-bq-quote-jasper-meta .t-bq-quote-jasper-author cite {
+    font-style: normal;
+}
+
+.t-bq-quote-jasper .t-bq-quote-jasper-meta .t-bq-quote-jasper-source {
+    font-size: 9pt;
+}

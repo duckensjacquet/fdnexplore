@@ -32,7 +32,6 @@
 
       <div class="carousel-inner">
         {% for slide in slides %} {% if slide == slides.0 %}
-       {% if slide.photo.url.exists %}
        <div class="carousel-item active">
         <img
           src="{{slide.photo}}"
@@ -43,20 +42,7 @@
           <h3>{{slides.caption}}</h3>
         </div>
       </div>
-       {% else %}
-       <div class="carousel-item active">
-        <img
-          src="https://liftlearning.com/wp-content/uploads/2020/09/default-image.png"
-          class="d-block w-100 simage"
-          alt="No image"
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h3>{{slides.caption}}</h3>
-        </div>
-      </div>
-       {%endif%}
         {% else %}
-        {% if slide.photo.url.exists %}
         <div class="carousel-item">
          <img
            src="{{slide.photo}}"
@@ -67,18 +53,6 @@
            <h3>{{slides.caption}}</h3>
          </div>
        </div>
-        {% else %}
-        <div class="carousel-item">
-         <img
-           src="https://liftlearning.com/wp-content/uploads/2020/09/default-image.png"
-           class="d-block w-100 simage"
-           alt="No image"
-         />
-         <div class="carousel-caption d-none d-md-block">
-           <h3>{{slides.caption}}</h3>
-         </div>
-       </div>
-        {%endif%}
         {%endif%} {%endfor%}
       </div>
 
