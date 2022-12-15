@@ -37,3 +37,9 @@ def DisplayArticle(request,id):
     article.views+=1
     article.save()
     return render(request,'articles/display.html',{'article' : article})
+
+
+def DeleteArticle(request,id):
+    article=Article.objects.get(pk=id)
+    article.delete()
+    return render(request,'dashboardadmin/articles.html',{'article' : article})

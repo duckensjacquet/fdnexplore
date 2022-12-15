@@ -5,11 +5,12 @@
 {%endblock%} {%block body %}
 <div class="col-md-12">
   <form method="post" action="" enctype="multipart/form-data" novalidate>
+    {% if article %}
     {% csrf_token %}
     <div class="col-md-12 row d-flex justify-content-between">
       <div class="col-md-5">
         <label>Title</label>
-        <input type="text" class="form-control" placeholder="Title" name="title" id="title" />
+        <input type="text" value="{{article.title}}" class="form-control" placeholder="Title" name="title" id="title" />
       </div>
       <div class="col-md-2">
         <label>Category</label>
@@ -21,7 +22,7 @@
       </div>
       <div class="col-md-2">
         <label>Image</label>
-        <input class="form-control" accept="image/*" type="file" id="imagethumbnail" name="imagethumbnail" />
+        <input class="form-control" value="{{article.image}}" accept="image/*" type="file" id="imagethumbnail" name="imagethumbnail" />
         
       </div>
       <div class="col-md-3">
@@ -45,6 +46,7 @@
       <input type="hidden" name="text" id="text"/>
     </div>
     <input type="submit" value="Publier" class="btn mt-2 btn-primary" />
+    {%endif%}
   </form>
 </div>
 {%endblock%}

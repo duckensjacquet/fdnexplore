@@ -25,7 +25,7 @@
         <td>{{user.first_name}}</td>
         <td>{{user.last_name}}</td>
         <td>{{user.username}}</td>
-        <td><a href="" class="btn btn-primary">Voir</a></td>
+        <td><a href="{% url 'updateuser' user.pk %}" class="btn btn-primary">Voir</a></td>
         <td><a href="" class="btn btn-danger">Suprimer</a></td>
       </tr>
       {%endfor%}

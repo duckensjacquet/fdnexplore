@@ -1,51 +1,28 @@
-{% extends 'dashboardadmin/layout.html' %} {% block title %}
-
-<label>Articles</label>
-{%endblock%} {%block body %} {% if msg %}
-
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>{{msg}}</strong>
-  <button
-    type="button"
-    class="btn-close"
-    data-bs-dismiss="alert"
-    aria-label="Close"
-  ></button>
-</div>
-{%endif%}
-{% block conf%}
-{%endblock%}
-<div class="col-md-12">
-  <table class="table table-striped table-hover" id="articletable">
+<h3>Most read articles</h3>
+<table class="table table-dark table-hover">
     <thead>
       <tr>
         <th scope="col">Titre</th>
         <th scope="col">Article</th>
         <th scope="col">Dernire modification</th>
-        <th>Action</th>
-        <th>.</th>
-        <th>.</th>
+        <th>Views</th>
+        <th colspan="3">Action</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      {% for article in articles %}
+      {% for article in marticles %}
       <tr>
+        <a href="{% url 'display_article' article.pk %}" class="stretched-link">
         <td>{{article.title}}</td>
         <td>{{article.text|slice:':20'}} ...</td>
         <td>{{article.lastupdated}}</td>
-        <td>
-          <a
-            href="{% url 'display_article' article.pk %}"
-            class="btn btn-primary"
-            >Voir</a
-          >
-        </td>
-        <td><a href="{% url 'updatearticle' article.pk %}" class="btn btn-secondary">Modifier</a></td>
+        <td>{{article.views}}</td>
         <td>
           <a href="{% url 'deletearticle' article.pk %}"  class="btn btn-danger"
             >Suprimer</a
           >
         </td>
+    </a>
       </tr>
       <!-- Modal -->
       <div
@@ -87,5 +64,3 @@
       {%endfor%}
     </tbody>
   </table>
-</div>
-{%endblock%}

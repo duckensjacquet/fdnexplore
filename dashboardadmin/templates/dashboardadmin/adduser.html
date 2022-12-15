@@ -4,27 +4,29 @@
 <label>New article</label>
 {%endblock%} {%block body %}
 <div class="col-md-12">
+    
   <form method="post" action="" name="adduser" enctype="multipart/form-data">
+    {% if user %}
     {% csrf_token %}
    <div class="col-md-12 row d-flex justify-content-between">
     <div class="col-md-3">
         <label>First name</label>
-        <input type="text" class="form-control" name="firstname" placeholder="Firstname"/>
+        <input type="text" value="{{user.first_name}}" class="form-control" name="firstname" placeholder="Firstname"/>
     </div>
     <div class="col-md-3">
         <label>Lastname</label>
-        <input type="text" class="form-control" name="lastname" placeholder="LastName"/>
+        <input type="text" value="{{user.last_name}}" class="form-control" name="lastname" placeholder="LastName"/>
     </div>
     <div class="col-md-3">
         <label>Username<span class="text-danger">*</span></label>
-        <input type="text" onchange="CheckPAssword()" id="username" class="form-control" name="username" placeholder="Username"/>
+        <input type="text" value="{{user.username}}" onchange="CheckPAssword()" id="username" class="form-control" name="username" placeholder="Username"/>
         <span id="usernamemsg" class="text-danger"></span>
     </div>
    </div>
    <div class="col-md-12 row d-flex justify-content-between mt-3">
     <div class="col-md-3">
         <label>Email</label>
-        <input type="email" class="form-control" name="email" placeholder="Email"/>
+        <input type="email" value="{{user.email}}" class="form-control" name="email" placeholder="Email"/>
     </div>
     <div class="col-md-3">
         <label>Password<span class="text-danger">*</span></label>
@@ -37,19 +39,33 @@
     </div>
     <div class="col-md-6 mt-2">
         <label>Permissions</label> <br/>
-            <input class="form-check-input" type="checkbox" name="staff" id="Staff">
+        {% if user.is_staff is not None %}
+        <input class="form-check-input" type="checkbox" checked name="staff" id="Staff">
+        {% else %}
+        <input class="form-check-input" type="checkbox" name="staff" id="Staff">
+        {%endif%}
             <label class="form-check-label me-4" for="Staff">
                 Staff
             </label>
-
+            {% if user.is_staff is not None %}
+            <input class="form-check-input" type="checkbox" checked name="superuser" id="superuser">
+            {% else %}
             <input class="form-check-input" type="checkbox" name="superuser" id="superuser">
+            {%endif%}
+            
             <label class="form-check-label" for="superuser">
                 Super Admin
             </label>
 
     </div>
    </div>
+   
+   {%endif%}
+
     <input type="submit" value="Anregistrer" id="adduserbutton" onclick="CheckPAssword()" class="btn mt-2 btn-primary"/>
+    <!--<input type="submit" value="Modifier" id="updateuserbutton" onclick="CheckPAssword()" class="btn mt-2 btn-primary"/>-->
+    <!--<input type="submit" value="Modifier" id="updateuserbutton" onclick="CheckPAssword()" class="btn mt-2 btn-primary"/>-->
   </form>
+  
 </div>
 {%endblock%}
