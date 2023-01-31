@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from decouple import config
 #import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,6 +87,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+DATABASES['default'] = dj_database_url.config(default='postgresql://postgres:vjsoTDArS8dJmJUAyGlk@containers-us-west-167.railway.app:7536/railway')
+
 
 STATICFILES_DIRS = [
     BASE_DIR / "articles/static",

@@ -3,15 +3,15 @@
     "version" : 2,
   "builds": [
     {
-      "src": "<fdnexplore>/wsgi.py",
+      "src": "fdnexplore/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.10.9" }
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3" }
     },
     {
-      "src": "build_files.sh",
+      "src": "build.sh",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "staticfiles"
+        "distDir": "staticfiles_build"
       }
     }
   ],
@@ -22,7 +22,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "<fdnexplore>/wsgi.py"
+      "dest": "fdnexplore/wsgi.py"
     }
   ]
 }

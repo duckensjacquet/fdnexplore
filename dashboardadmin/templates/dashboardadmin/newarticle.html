@@ -7,45 +7,89 @@
   <form method="post" action="" enctype="multipart/form-data" novalidate>
     {% if article %}
     {% csrf_token %}
-    <div class="col-md-12 row d-flex justify-content-between">
-      <div class="col-md-5">
-        <label>Title</label>
-        <input type="text" value="{{article.title}}" class="form-control" placeholder="Title" name="title" id="title" />
+    <div>
+      <div class="col-md-12 row d-flex justify-content-between">
+        <div class="col-md-5">
+          <label>Title</label>
+          <input type="text" value="{{article.title}}" class="form-control" placeholder="Title" name="title" id="title" />
+        </div>
+        <div class="col-md-2">
+          <label>Category</label>
+          <select name="category" id="category" class="form-select">
+              {% for category in categories %}
+              <option value="{{category.id}}" >{{category.description}}</option>
+              {%endfor%}
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label>Image</label>
+          <input class="form-control" value="{{article.image}}" accept="image/*" type="file" id="imagethumbnail" name="imagethumbnail" />
+          
+        </div>
+        <div class="col-md-3">
+          <img src="{{article.imagethumbnail.url}}" height="80" alt="preview" id="preview"/>
+        </div>
       </div>
-      <div class="col-md-2">
-        <label>Category</label>
-        <select name="category" id="category" class="form-select">
-            {% for category in categories %}
-            <option value="{{category.id}}" >{{category.description}}</option>
-            {%endfor%}
-        </select>
+      <div class="col-md-12">
+        <label>Image caption</label>
+        <input type="text" id="caption" value="{{article.imagecaptions}}" placeholder="Image caption" class="form-control" name="caption"/>
       </div>
-      <div class="col-md-2">
-        <label>Image</label>
-        <input class="form-control" value="{{article.image}}" accept="image/*" type="file" id="imagethumbnail" name="imagethumbnail" />
-        
+      <div class="col-md-12">
+        <label>Article</label>
+        <div
+          class="form-control"
+          id="articletext"
+          style="resize: none"
+          placeholder="Article"
+          name="art"
+          required
+        ></div>
+        <input type="hidden" name="text" id="text"/>
       </div>
-      <div class="col-md-3">
-        <img src="https://deconova.eu/wp-content/uploads/2016/02/default-placeholder.png" height="80" alt="preview" id="preview"/>
-      </div>
+      <input type="submit" value="Publier" class="btn mt-2 btn-primary" />
     </div>
-    <div class="col-md-12">
-      <label>Image caption</label>
-      <input type="text" id="caption" placeholder="Image caption" class="form-control" name="caption"/>
+    {% else %}
+    <div>
+      <div class="col-md-12 row d-flex justify-content-between">
+        <div class="col-md-5">
+          <label>Title</label>
+          <input type="text" class="form-control" placeholder="Title" name="title" id="title" />
+        </div>
+        <div class="col-md-2">
+          <label>Category</label>
+          <select name="category" id="category" class="form-select">
+              {% for category in categories %}
+              <option value="{{category.id}}" >{{category.description}}</option>
+              {%endfor%}
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label>Image</label>
+          <input class="form-control" value="" accept="image/*" type="file" id="imagethumbnail" name="imagethumbnail" />
+          
+        </div>
+        <div class="col-md-3">
+          <img src="" height="80" alt="preview" id="preview"/>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label>Image caption</label>
+        <input type="text" id="caption" placeholder="Image caption" class="form-control" name="caption"/>
+      </div>
+      <div class="col-md-12">
+        <label>Article</label>
+        <div
+          class="form-control"
+          id="articletext"
+          style="resize: none"
+          placeholder="Article"
+          name="art"
+          required
+        ></div>
+        <input type="hidden" name="text" id="text"/>
+      </div>
+      <input type="submit" value="Publier" class="btn mt-2 btn-primary" />
     </div>
-    <div class="col-md-12">
-      <label>Article</label>
-      <div
-        class="form-control"
-        id="articletext"
-        style="resize: none"
-        placeholder="Article"
-        name="art"
-        required
-      ></div>
-      <input type="hidden" name="text" id="text"/>
-    </div>
-    <input type="submit" value="Publier" class="btn mt-2 btn-primary" />
     {%endif%}
   </form>
 </div>

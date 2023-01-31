@@ -3,6 +3,7 @@
 <div class="alert alert-danger alert-dismissible fade show col-md-6" role="alert">
     <strong>would you like to delete this?</strong> <br/>{{delarticle.title}}.
     <a href="{% url 'confirmdeletearticle' delarticle.pk %}" class="btn btn-danger">Yes</a>
+    <a href="{% url 'article' %}" class="btn btn-info">No</a>
     <a href="{% url 'article' %}"><button type="button" class="btn-close"  aria-label="Close"></button></a>
     
   </div>
